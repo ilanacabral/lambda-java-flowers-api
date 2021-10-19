@@ -18,7 +18,10 @@ provider:
     - Effect: "Allow"
       Action:
         - "dynamodb:*"
-      Resource: "*"    
+      Resource: "*"   
+  
+  environment:
+    FLOWERS_TABLE_NAME: "flowers_table"
 
 # you can define service wide environment variables here
 #  environment:
@@ -30,16 +33,34 @@ package:
 
 functions:
   getAllFlowers:
-    handler: com.serverless.handler.Handler
+    handler: com.serverless.handler.ListFlowersHandler
     events:
       - http:
           path: /
-          method: get
+          method: get  
+  # getFlower:
+  #   handler: com.serverless.handler.GetFlowerHandler
+  #   events:
+  #     - http:
+  #         path: /flowers/{id}
+  #         method: get
+  # createFlower:
+  #   handler: com.serverless.handler.CreateFlowerHandler
+  #   events:
+  #     - http:
+  #         path: /flowers
+  #         method: post
+  # deleteFlower:
+  #   handler: com.serverless.handler.DeleteFlowerHandler
+  #   events:
+  #     - http:
+  #         path: /flowers/{id}
+  #         method: delete
 
 # you can add CloudFormation resource templates here
 resources:
  Resources:
-   productsTable:
+   FlowersTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: flowers_table
