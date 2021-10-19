@@ -38,12 +38,12 @@ functions:
       - http:
           path: /
           method: get  
-  # getFlower:
-  #   handler: com.serverless.handler.GetFlowerHandler
-  #   events:
-  #     - http:
-  #         path: /flowers/{id}
-  #         method: get
+  getFlower:
+    handler: com.serverless.handler.GetFlowerHandler
+    events:
+      - http:
+          path: /flowers/{id}
+          method: get
   # createFlower:
   #   handler: com.serverless.handler.CreateFlowerHandler
   #   events:

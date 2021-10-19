@@ -13,5 +13,9 @@ public class FlowerService {
         public List<Flower> list() throws IOException {
             return flowerRepository.list();
         }
+
+        public Flower get(String id) throws IOException {
+            return flowerRepository.get(id);
+        }
     
 }
