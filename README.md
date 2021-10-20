@@ -1,6 +1,6 @@
 <h2>Digital Innovation: Bootcamp GFT Java & AWS Developer</h2>
 
-Objetivo é desenvolver uma API REST para o gerenciamento de uma floricultura. A linguagem usada é Java, os dados serão armazenados em uma tabela DynamoDB e o serviços serão atendidos por funções lambda na nuvem AWS.
+Objetivo é desenvolver uma API REST para o gerenciamento de uma floricultura. A linguagem usada é Java, os dados serão armazenados em uma tabela DynamoDB e os serviços serão atendidos por funções lambda na nuvem AWS.
 
 Foram utilizados:
 
@@ -61,4 +61,4 @@ Links úteis:
 * [Documentação oficial do Lombok](https://projectlombok.org/)
 * [Referência para o padrão arquitetural REST](https://restfulapi.net/)
 * [Referência para o DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDynamo.html)
-* [Guides & Tutorials](https://www.serverless.com/blog/how-to-create-a-rest-api-in-java-using-dynamodb-and-serverless)
+* [Guias & Tutoriais](https://www.serverless.com/blog/how-to-create-a-rest-api-in-java-using-dynamodb-and-serverless)
