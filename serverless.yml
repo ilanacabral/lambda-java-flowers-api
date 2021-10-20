@@ -50,6 +50,12 @@ functions:
       - http:
           path: /flowers
           method: post
+  updateFlower:
+    handler: com.serverless.handler.UpdateFlowerHandler
+    events:
+      - http:
+          path: /flowers/{id}
+          method: put
   deleteFlower:
     handler: com.serverless.handler.DeleteFlowerHandler
     events:

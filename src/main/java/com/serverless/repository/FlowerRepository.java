@@ -56,22 +56,36 @@ public class FlowerRepository {
         return flower;
     }
 
-    public void save(Flower flower) throws IOException {       
+    public void save(Flower flower) throws IOException {
         this.mapper.save(flower);
         logger.info("Flowers - save(): " + flower.toString());
     }
 
     public Boolean delete(String id) throws IOException {
         Flower flower = null;
-    
+
         // get flower if exists
         flower = get(id);
-        if (flower != null) {         
-          this.mapper.delete(flower);
-          logger.info("Flowers - delete(): " + flower.toString());
+        if (flower != null) {
+            this.mapper.delete(flower);
+            logger.info("Flowers - delete(): " + flower.toString());
         } else {
-          logger.info("Flowers - delete(): flower id " + id + " - does not exist.");
-          return false;
+            logger.info("Flowers - delete(): flower id " + id + " - does not exist.");
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean update(String id, Flower updateFlower) throws IOException {
+        // get flower if exists
+        Flower flower = get(id);
+        if (flower != null) {
+            updateFlower.setId(id);
+            this.mapper.save(updateFlower);
+            logger.info("Flowers - update(): " + flower.toString());
+        } else {
+            logger.info("Flowers - update(): flower id " + id + " - does not exist.");
+            return false;
         }
         return true;
     }

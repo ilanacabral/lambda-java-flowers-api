@@ -22,6 +22,10 @@ public class FlowerService {
             flowerRepository.save(flower);
         }
 
+        public Boolean update(String id, Flower updateFlower) throws IOException {
+            return flowerRepository.update(id, updateFlower);
+        }
+
         public Boolean delete(String id) throws IOException {
             return flowerRepository.delete(id);
         }

@@ -26,7 +26,7 @@ public class DeleteFlowerHandler implements RequestHandler<Map<String, Object>, 
 
 			String flowerId = pathParameters.get("id");
 	
-			// get the Flower by id
+			// delete the Flower by id
 			Boolean success = flowerService.delete(flowerId);
 	
 			// send the response back
