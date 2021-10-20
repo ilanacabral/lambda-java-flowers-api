@@ -44,18 +44,18 @@ functions:
       - http:
           path: /flowers/{id}
           method: get
-  # createFlower:
-  #   handler: com.serverless.handler.CreateFlowerHandler
-  #   events:
-  #     - http:
-  #         path: /flowers
-  #         method: post
-  # deleteFlower:
-  #   handler: com.serverless.handler.DeleteFlowerHandler
-  #   events:
-  #     - http:
-  #         path: /flowers/{id}
-  #         method: delete
+  createFlower:
+    handler: com.serverless.handler.CreateFlowerHandler
+    events:
+      - http:
+          path: /flowers
+          method: post
+  deleteFlower:
+    handler: com.serverless.handler.DeleteFlowerHandler
+    events:
+      - http:
+          path: /flowers/{id}
+          method: delete
 
 # you can add CloudFormation resource templates here
 resources:

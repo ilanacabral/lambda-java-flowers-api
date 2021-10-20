@@ -17,5 +17,13 @@ public class FlowerService {
         public Flower get(String id) throws IOException {
             return flowerRepository.get(id);
         }
+
+        public void save(Flower flower) throws IOException {
+            flowerRepository.save(flower);
+        }
+
+        public Boolean delete(String id) throws IOException {
+            return flowerRepository.delete(id);
+        }
     
 }

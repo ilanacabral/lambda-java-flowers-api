@@ -55,4 +55,24 @@ public class FlowerRepository {
         }
         return flower;
     }
+
+    public void save(Flower flower) throws IOException {       
+        this.mapper.save(flower);
+        logger.info("Flowers - save(): " + flower.toString());
+    }
+
+    public Boolean delete(String id) throws IOException {
+        Flower flower = null;
+    
+        // get flower if exists
+        flower = get(id);
+        if (flower != null) {         
+          this.mapper.delete(flower);
+          logger.info("Flowers - delete(): " + flower.toString());
+        } else {
+          logger.info("Flowers - delete(): flower id " + id + " - does not exist.");
+          return false;
+        }
+        return true;
+    }
 }
