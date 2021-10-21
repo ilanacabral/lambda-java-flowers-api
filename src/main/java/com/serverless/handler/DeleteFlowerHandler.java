@@ -14,7 +14,7 @@ import com.serverless.service.FlowerService;
 
 public class DeleteFlowerHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
     private static final Logger LOG = LogManager.getLogger(DeleteFlowerHandler.class);
-	private final FlowerService flowerService = new FlowerService();
+	private final FlowerService flowerService = FlowerService.getInstance();
 
 	@Override
 	public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
@@ -27,7 +27,7 @@ public class DeleteFlowerHandler implements RequestHandler<Map<String, Object>, 
 			String flowerId = pathParameters.get("id");
 	
 			// delete the Flower by id
-			Boolean success = flowerService.delete(flowerId);
+			boolean success = flowerService.delete(flowerId);
 	
 			// send the response back
 			if (success) {

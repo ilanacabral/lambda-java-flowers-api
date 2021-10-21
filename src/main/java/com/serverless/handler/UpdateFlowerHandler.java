@@ -17,7 +17,7 @@ import com.serverless.service.FlowerService;
 public class UpdateFlowerHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse>{
 
     private static final Logger LOG = LogManager.getLogger(GetFlowerHandler.class);
-	private final FlowerService flowerService = new FlowerService();
+	private final FlowerService flowerService = FlowerService.getInstance();
 
     @Override
 	public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
@@ -39,7 +39,7 @@ public class UpdateFlowerHandler implements RequestHandler<Map<String, Object>, 
 			price(body.get("price").asDouble()).build();
 	
 			// update the Flower by id
-			Boolean success  = flowerService.update(flowerId,updateFlower);
+			boolean success  = flowerService.update(flowerId,updateFlower);
 	
 			// send the response back
 			if (success) {

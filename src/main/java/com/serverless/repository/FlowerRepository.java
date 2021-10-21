@@ -23,11 +23,20 @@ public class FlowerRepository {
 
     private DynamoDBMapper mapper;
 
-    public FlowerRepository() {
+    private static FlowerRepository flowerRepository;
+
+    private FlowerRepository() {
         DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
                 .withTableNameOverride(new DynamoDBMapperConfig.TableNameOverride(FLOWERS_TABLE_NAME)).build();
         DynamoDBAdapter dbAdapter = DynamoDBAdapter.getInstance();
         this.mapper = dbAdapter.createDbMapper(mapperConfig);
+    }
+
+    public static FlowerRepository getInstance(){
+        if (flowerRepository == null){
+           flowerRepository = new FlowerRepository();
+        }
+        return flowerRepository;
     }
 
     public List<Flower> list() throws IOException {

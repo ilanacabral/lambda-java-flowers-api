@@ -7,27 +7,40 @@ import java.io.IOException;
 import java.util.List;
 
 public class FlowerService {
-    
-        private final FlowerRepository flowerRepository = new FlowerRepository();
 
-        public List<Flower> list() throws IOException {
-            return flowerRepository.list();
-        }
+    private final FlowerRepository flowerRepository;
 
-        public Flower get(String id) throws IOException {
-            return flowerRepository.get(id);
-        }
+    private static FlowerService flowerService;
 
-        public void save(Flower flower) throws IOException {
-            flowerRepository.save(flower);
-        }
+    private FlowerService() {
+        flowerRepository = FlowerRepository.getInstance();
+    }
 
-        public Boolean update(String id, Flower updateFlower) throws IOException {
-            return flowerRepository.update(id, updateFlower);
+    public static FlowerService getInstance() {
+        if (flowerService == null) {
+            flowerService = new FlowerService();
         }
+        return flowerService;
+    }
 
-        public Boolean delete(String id) throws IOException {
-            return flowerRepository.delete(id);
-        }
-    
+    public List<Flower> list() throws IOException {
+        return flowerRepository.list();
+    }
+
+    public Flower get(String id) throws IOException {
+        return flowerRepository.get(id);
+    }
+
+    public void save(Flower flower) throws IOException {
+        flowerRepository.save(flower);
+    }
+
+    public Boolean update(String id, Flower updateFlower) throws IOException {
+        return flowerRepository.update(id, updateFlower);
+    }
+
+    public Boolean delete(String id) throws IOException {
+        return flowerRepository.delete(id);
+    }
+
 }

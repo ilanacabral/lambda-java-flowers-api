@@ -14,7 +14,7 @@ import com.serverless.service.FlowerService;
 
 public class GetFlowerHandler  implements RequestHandler<Map<String, Object>, ApiGatewayResponse>{
     private static final Logger LOG = LogManager.getLogger(GetFlowerHandler.class);
-	private final FlowerService flowerService = new FlowerService();
+	private final FlowerService flowerService = FlowerService.getInstance();
 
     @Override
 	public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
